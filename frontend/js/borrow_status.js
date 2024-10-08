@@ -19,7 +19,6 @@ function loadBorrowStatus() {
         alert('无法加载借阅情况，请稍后再试。');
     });
 }
-
 // 页面加载时调用加载借阅情况
 document.addEventListener('DOMContentLoaded', loadBorrowStatus);
 

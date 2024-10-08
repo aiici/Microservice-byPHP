@@ -51,7 +51,6 @@ document.getElementById('return-form')?.addEventListener('submit', function (e) 
         alert('归还接口问题，请检查服务。');
     });
 });
-
 // 页面加载时调用加载已借阅图书列表
 document.addEventListener('DOMContentLoaded', loadBorrowedBooks);
 

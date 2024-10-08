@@ -29,4 +29,18 @@ document.addEventListener('DOMContentLoaded', function() {
         checkAdminRole();
     }
 });
+// 退出登录的函数
+function logout() {
+    // 清除 sessionStorage 中保存的登录状态和用户信息
+    sessionStorage.removeItem('isLoggedIn');
+    sessionStorage.removeItem('role');
+    sessionStorage.removeItem('user_id');
 
+    // 重定向到登录页面
+    window.location.href = 'index.html'; 
+}
+
+// 在退出登录链接上绑定点击事件
+document.getElementById('logout-link')?.addEventListener('click', function () {
+    logout();
+});

@@ -98,7 +98,6 @@ function resetForm() {
     document.getElementById('user-role').value = 'user';
     document.getElementById('delete-user').classList.add('d-none');
 }
-
 // 页面加载时调用加载用户列表
 document.addEventListener('DOMContentLoaded', loadUsers);
 
