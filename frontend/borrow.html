@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统 - 借阅图书</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/auth.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">图书管理系统</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="return.html">归还图书</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="borrow.html">借阅图书</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>可借阅图书</h2>
+                <ul id="available-books" class="list-group"></ul> <!-- 显示可借图书列表 -->
+            </div>
+            <div class="col-md-6">
+                <h2>借阅图书</h2>
+                <form id="borrow-form">
+                    <div class="form-group">
+                        <label for="borrow-book-id">图书ID</label>
+                        <input type="text" id="borrow-book-id" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">借阅</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h2>借阅情况</h2>
+                <ul id="borrow-status-list" class="list-group"></ul> <!-- 显示借阅情况 -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/borrow.js"></script> <!-- 引用借阅逻辑的 js 文件 -->
+</body>
+</html>
+

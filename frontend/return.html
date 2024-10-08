@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统 - 归还图书</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">图书管理系统</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="dashboard.html">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="borrow.html">借阅图书</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="return.html">归还图书</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>已借阅图书</h2>
+                <ul id="borrowed-books" class="list-group"></ul> <!-- 显示已借阅图书列表 -->
+            </div>
+            <div class="col-md-6">
+                <h2>归还图书</h2>
+                <form id="return-form">
+                    <div class="form-group">
+                        <label for="return-book-id">图书ID</label>
+                        <input type="text" id="return-book-id" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">归还</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/return.js"></script> 
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

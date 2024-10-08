@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统 - 图书管理</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">图书管理系统</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin_dashboard.html">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="books.html">图书管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users.html">用户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="borrow_status.html">借阅情况</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>图书列表</h2>
+                <ul id="book-list" class="list-group"></ul> <!-- 显示图书列表 -->
+            </div>
+            <div class="col-md-6">
+                <h2>添加/编辑图书</h2>
+                <form id="add-edit-book-form">
+                    <input type="hidden" id="book-id">
+                    <div class="form-group">
+                        <label for="book-title">图书标题</label>
+                        <input type="text" id="book-title" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="book-author">作者</label>
+                        <input type="text" id="book-author" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">保存</button>
+                    <button type="button" id="delete-book" class="btn btn-danger btn-block d-none">删除图书</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/books.js"></script> 
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

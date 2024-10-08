@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图书管理系统 - 用户管理</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">图书管理系统</a>
+        <div class="collapse navbar-collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="admin_dashboard.html">主页</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="books.html">图书管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="users.html">用户管理</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="borrow_status.html">借阅情况</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">登出</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <h2>用户列表</h2>
+                <ul id="user-list" class="list-group"></ul> <!-- 显示用户列表 -->
+            </div>
+            <div class="col-md-6">
+                <h2>添加/编辑用户</h2>
+                <form id="add-edit-user-form">
+                    <input type="hidden" id="user-id">
+                    <div class="form-group">
+                        <label for="user-username">用户名</label>
+                        <input type="text" id="user-username" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user-password">密码</label>
+                        <input type="password" id="user-password" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="user-role">角色</label>
+                        <select id="user-role" class="form-control" required>
+                            <option value="user">用户</option>
+                            <option value="admin">管理员</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">保存</button>
+                    <button type="button" id="delete-user" class="btn btn-danger btn-block d-none">删除用户</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="js/users.js"></script> 
+    <script src="js/auth.js"></script>
+</body>
+</html>
+

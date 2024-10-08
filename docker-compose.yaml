@@ -1,0 +1,85 @@
+version: '3.8'
+services:
+  # MySQL 服务
+  mysql:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: demo_service
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./sql/database.sql:/docker-entrypoint-initdb.d/databases.sql
+    networks:
+      - book-network
+
+  # 用户服务
+  user_service:
+    build: ./user_service
+    container_name: user_service
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: demo_service
+    networks:
+      - book-network
+
+  # 图书服务
+  book_service:
+    build: ./book_service
+    container_name: book_service
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: demo_service
+    networks:
+      - book-network
+
+  # 借阅服务
+  borrow_service:
+    build: ./borrow_service
+    container_name: borrow_service
+    depends_on:
+      - mysql
+    environment:
+      MYSQL_HOST: mysql
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+      MYSQL_DATABASE: demo_service
+    networks:
+      - book-network
+
+  # API 网关
+  gateway:
+    build: ./gateway
+    container_name: gateway
+    ports:
+      - "8000:80"
+    depends_on:
+      - user_service
+      - book_service
+      - borrow_service
+    networks:
+      - book-network
+ # 前端服务
+  frontend:
+    build: ./frontend
+    container_name: frontend
+    ports:
+      - "9999:80" 
+    networks:
+      - book-network
+
+networks:
+  book-network:
+    driver: bridge
+
+volumes:
+  mysql_data:
